@@ -147,7 +147,7 @@
 
     <script>
         // Generiši QR kod za test.html
-        const testUrl = window.location.href.replace(/\/$/, '') + '/test.html';
+        const testUrl = window.location.href.replace(/\/$/, '') + '/Test.html';
         const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(testUrl)}`;
         document.getElementById('qrImage').src = qrApi;
     </script>
