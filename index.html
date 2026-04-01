@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veb programiranje - Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .qr-code {
+            max-width: 250px;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .instructions ol {
+            padding-left: 20px;
+            color: #555;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .link {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            word-break: break-all;
+        }
+
+        .link a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Veb programiranje</h1>
+        <div class="subtitle">Test znanja</div>
+
+        <div class="qr-container">
+            <img id="qrImage" class="qr-code" src="" alt="QR kod">
+            <p style="font-size: 0.7rem; color: #888; margin-top: 10px;">Skenirajte kamerom telefona</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📌 Kako do testa:</h3>
+            <ol>
+                <li>Otvorite kameru na telefonu</li>
+                <li>Uperite u QR kod iznad</li>
+                <li>Kliknite na link koji se pojavi</li>
+                <li>Rešite 12 pitanja za 15 minuta</li>
+            </ol>
+        </div>
+
+        <a href="test.html" class="btn">🎯 Idite na test</a>
+
+        <div class="link">
+            Ili otvorite direktan link:<br>
+            <a href="test.html">https://tvoje-ime.github.io/veb-programiranje-test/test.html</a>
+        </div>
+    </div>
+
+    <script>
+        // Generiši QR kod za test.html
+        const testUrl = window.location.href.replace(/\/$/, '') + '/test.html';
+        const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(testUrl)}`;
+        document.getElementById('qrImage').src = qrApi;
+    </script>
+</body>
+</html>
